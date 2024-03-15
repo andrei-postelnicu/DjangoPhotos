@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}add photo | {% endblock %}
+
+{% block content %}
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">   
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-4">
+            <label>When was the photo taken?</label>
+        </div>
+    
+        <div class="mb-4">
+            {{ form.date }}
+        </div>
+
+        <div class="mb-4">
+            <label>Please upload a photo.</label>
+        </div>
+
+        <div class="mb-4">
+            {{ form.photo }}
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Add</button>
+    </form>       
+</div>
+
+{% endblock %}

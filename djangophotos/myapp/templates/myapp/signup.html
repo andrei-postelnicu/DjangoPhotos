@@ -1,0 +1,54 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}sign up | {% endblock %}
+
+{% block content %}
+
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">   
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="mb-4">
+            <h3>Sign up</h3>
+        </div>
+
+        <div class="mb-4">
+            <hr/>
+        </div>
+    
+        <div class="mb-4">
+            <input type="text" class="form-control" name="username" placeholder="Username" maxlength="20" required>
+        </div>
+
+        <div class="mb-4">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="mb-4">
+            <input type="password" class="form-control" name="password1" placeholder="Password" maxlength="20" required>
+        </div>
+
+        <div class="mb-4">
+            <input type="password" class="form-control" name="password2" placeholder="Confirm password" maxlength="20" required>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary mb-4">Sign up</button>
+
+        <div class="mb-4">
+            <hr/>
+        </div>
+
+        <div>
+            <a href="/login/">Already have an account?</a>
+        </div>
+
+    </form>
+</div>
+
+{% if form.errors %}
+    <script>
+        alert("Error: The user could not be created.\nThe username and email must be unique and you should choose a strong password. Please review the information and try again.");
+    </script>
+{% endif %}
+
+{% endblock %}

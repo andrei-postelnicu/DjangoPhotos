@@ -1,0 +1,51 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}log in | {% endblock %}
+
+{% block content %}
+    
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">   
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="mb-4">
+            <h3>Log in</h3>
+        </div>
+
+        <div class="mb-4">
+            <hr/>
+        </div>
+    
+        <div class="mb-4">
+            <input type="text" class="form-control" name="username" placeholder="Username" maxlength="20" required>
+        </div>
+
+        <div class="mb-4">
+            <input type="password" class="form-control" name="password" placeholder="Password" maxlength="20" required>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary mb-4">Log in</button>
+
+        <div class="mb-4">
+            <a href="{% url 'reset_password' %}">Forgot password?</a>
+        </div>
+
+        <div class="mb-4">
+            <hr/>
+        </div>
+
+        <div>
+            <a class="btn btn-outline-success" href="/signup/">Create new account</a>
+        </div>
+
+    </form>       
+</div>
+
+{% for message in messages %}
+<script>
+    var msg = "{{ message }}";
+    alert(msg);
+</script>
+{% endfor %}
+ 
+{% endblock %}

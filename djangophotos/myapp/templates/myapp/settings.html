@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}settings | {% endblock %}
+
+{% block content %}
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-sm-8">
+        <h3>Settings</h3>
+        <p class="mb-4">To ensure the continued safety of your account, we recommend reviewing and updating your password periodically.
+        If, for any reason, you're contemplating the deletion of your account, please be aware that this action is irreversible and will result in the permanent loss of all account data.</p>
+        <a href="/change_password/" class="btn btn-outline-primary">Change password</a>
+        <a href="/delete_account/" class="btn btn-outline-danger ms-3">Delete account</a>
+    </div>
+</div>
+{% endblock %}
